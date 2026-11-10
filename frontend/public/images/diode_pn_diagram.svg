@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 200" width="100%" height="100%">
+  <defs>
+    <style>
+      .cls-p { fill: #f3a8b6; stroke: #8e2137; stroke-width: 2; }
+      .cls-n { fill: #a2d2ff; stroke: #1d3557; stroke-width: 2; }
+      .cls-wire { stroke: #333333; stroke-width: 3; fill: none; }
+      .cls-text { font-family: sans-serif; font-size: 16px; font-weight: bold; fill: #1c1917; text-anchor: middle; }
+      .cls-sub { font-family: sans-serif; font-size: 13px; fill: #57534e; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <!-- P-Region -->
+  <rect x="150" y="40" width="100" height="70" class="cls-p" rx="4" />
+  <text x="200" y="75" class="cls-text">p-type</text>
+  <text x="200" y="95" class="cls-sub">(Holes)</text>
+
+  <!-- N-Region -->
+  <rect x="250" y="40" width="100" height="70" class="cls-n" rx="4" />
+  <text x="300" y="75" class="cls-text">n-type</text>
+  <text x="300" y="95" class="cls-sub">(Electrons)</text>
+
+  <!-- Depletion boundary -->
+  <line x1="250" y1="40" x2="250" y2="110" stroke="#701a2b" stroke-width="2" stroke-dasharray="3 3" />
+
+  <!-- Anode Terminal -->
+  <line x1="80" y1="75" x2="150" y2="75" class="cls-wire" />
+  <circle cx="80" cy="75" r="4" fill="#333" />
+  <text x="80" y="60" class="cls-sub">Anode (A)</text>
+
+  <!-- Cathode Terminal -->
+  <line x1="350" y1="75" x2="420" y2="75" class="cls-wire" />
+  <circle cx="420" cy="75" r="4" fill="#333" />
+  <text x="420" y="60" class="cls-sub">Cathode (K)</text>
+
+  <!-- Diode Schematic Symbol below -->
+  <g transform="translate(180, 140)">
+    <line x1="0" y1="20" x2="50" y2="20" class="cls-wire" />
+    <polygon points="50,5 50,35 90,20" fill="#701a2b" stroke="#701a2b" stroke-width="2" />
+    <line x1="90" y1="5" x2="90" y2="35" stroke="#701a2b" stroke-width="3" />
+    <line x1="90" y1="20" x2="140" y2="20" class="cls-wire" />
+  </g>
+</svg>
