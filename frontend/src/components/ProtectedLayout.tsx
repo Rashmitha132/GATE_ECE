@@ -3,7 +3,7 @@ import { Navigate, Outlet, Link, useLocation } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
 import { InstitutionalFooter } from './InstitutionalFooter';
 import { useAuth } from '../context/AuthContext';
-import { Bell, Check, BookOpen, Layers, FileCheck2, FolderKanban, X } from 'lucide-react';
+import { Bell, Check, BookOpen, Layers, FileCheck2, FolderKanban, X, Menu } from 'lucide-react';
 
 interface NotificationItem {
   id: string;
@@ -52,6 +52,7 @@ const DEFAULT_NOTIFICATIONS: NotificationItem[] = [
 export const ProtectedLayout: React.FC = () => {
   const { user, isLoading } = useAuth();
   const location = useLocation();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const [notifications, setNotifications] = useState<NotificationItem[]>(() => {
     try {
@@ -76,6 +77,7 @@ export const ProtectedLayout: React.FC = () => {
       '/admin': 'Admin Governance • GSSSIETW GATE ECE'
     };
     document.title = titles[location.pathname] || 'GSSSIETW • GATE ECE Platform';
+    setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
   const unreadCount = notifications.filter((n) => !n.isRead).length;
@@ -124,17 +126,29 @@ export const ProtectedLayout: React.FC = () => {
   }
 
   return (
-    <div className="h-screen w-screen flex bg-[#faf7f5] overflow-hidden">
-      {/* Persistent Full-Height Left Sidebar */}
-      <Sidebar />
+    <div className="h-screen w-screen flex bg-[#faf7f5] overflow-hidden relative">
+      {/* Responsive Left Sidebar Drawer */}
+      <Sidebar isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
 
       {/* Main Workspace with Compact Top User Profile Bar and Scrollable Page View */}
-      <div className="flex-1 flex flex-col h-full min-w-0 overflow-hidden">
+      <div className="flex-1 flex flex-col h-full min-w-0 overflow-hidden w-full">
         {/* Sleek Authenticated Top Bar */}
-        <header className="h-14 bg-white border-b border-rose-100/80 px-6 flex items-center justify-between shrink-0 shadow-2xs">
-          <div className="flex items-center gap-3">
+        <header className="h-14 bg-white border-b border-rose-100/80 px-4 sm:px-6 flex items-center justify-between shrink-0 shadow-2xs">
+          <div className="flex items-center gap-2 sm:gap-3">
+            {/* Mobile Hamburger Menu Toggle */}
+            <button
+              type="button"
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="p-1.5 -ml-1 rounded-lg text-stone-700 hover:bg-rose-50 hover:text-[#701a2b] lg:hidden cursor-pointer transition"
+              title="Open menu"
+            >
+              <Menu className="w-5 h-5 text-[#701a2b]" />
+            </button>
             <span className="text-xs uppercase font-semibold text-[#8e2137] tracking-wider hidden sm:inline">
               GSSSIETW &bull; ECE Department
+            </span>
+            <span className="text-xs font-bold text-[#701a2b] font-serif sm:hidden">
+              GATE ECE
             </span>
           </div>
 

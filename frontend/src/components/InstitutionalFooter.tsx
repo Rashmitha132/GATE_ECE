@@ -36,7 +36,7 @@ export const InstitutionalFooter: React.FC<FooterProps> = ({ variant = 'light', 
             GATE ECE Learning &amp; Assessment Platform &bull; Institutional Intranet System
           </p>
         </div>
-        <div className="text-xs text-stone-600 bg-rose-50/70 border border-rose-100/90 rounded-full px-3.5 py-1 flex flex-wrap items-center justify-center gap-1.5 shadow-2xs">
+        <div className="text-xs text-stone-600 bg-rose-50/70 border border-rose-100/90 rounded-2xl sm:rounded-full px-3.5 py-1.5 sm:py-1 flex flex-wrap items-center justify-center gap-1.5 shadow-2xs">
           <span>Under the guidance of <strong className="text-[#701a2b] font-semibold">Smt. Rashmi H C</strong></span>
           <span className="text-rose-300 font-bold hidden sm:inline">&bull;</span>
           <span>Made by <strong className="text-stone-900 font-semibold">Rashmitha S, Mahadevamma V P, Rashmitha K N</strong></span>

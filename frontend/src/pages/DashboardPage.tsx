@@ -95,8 +95,8 @@ export const DashboardPage: React.FC = () => {
         </div>
 
         {/* Banner Right Image + Goal Box */}
-        <div className="flex items-center gap-6">
-          <div className="hidden lg:block w-48 h-36 rounded-xl overflow-hidden shadow-md border-2 border-white">
+        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full lg:w-auto">
+          <div className="hidden lg:block w-48 h-36 rounded-xl overflow-hidden shadow-md border-2 border-white shrink-0">
             <img 
               src="/images/gate-student-hero.png" 
               alt="Student" 
@@ -105,7 +105,7 @@ export const DashboardPage: React.FC = () => {
           </div>
 
           {/* Today's Goal Card */}
-          <div className="bg-white rounded-xl p-5 shadow-sm border border-rose-100 w-72 shrink-0">
+          <div className="bg-white rounded-xl p-4 sm:p-5 shadow-sm border border-rose-100 w-full sm:w-72 shrink-0">
             <div className="flex items-center justify-between text-xs text-stone-500 mb-2">
               <span className="font-semibold text-stone-800 flex items-center gap-1.5">
                 📅 Today's Goal
@@ -144,7 +144,7 @@ export const DashboardPage: React.FC = () => {
             <span>Your Overall Progress</span>
           </h3>
 
-          <div className="flex items-center justify-around my-2">
+          <div className="flex flex-col sm:flex-row items-center justify-around gap-4 my-2">
             {/* Donut percentage */}
             <div className="relative w-28 h-28 flex items-center justify-center">
               <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
