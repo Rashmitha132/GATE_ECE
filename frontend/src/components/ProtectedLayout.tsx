@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Navigate, Outlet, Link, useLocation } from 'react-router-dom';
 import { Sidebar } from './Sidebar';
+import { InstitutionalFooter } from './InstitutionalFooter';
 import { useAuth } from '../context/AuthContext';
 import { Bell, Check, BookOpen, Layers, FileCheck2, FolderKanban, X } from 'lucide-react';
 
@@ -258,9 +259,12 @@ export const ProtectedLayout: React.FC = () => {
           </div>
         </header>
 
-        {/* Scrollable Page Content */}
-        <main className="flex-1 overflow-y-auto p-6 md:p-8">
-          <Outlet />
+        {/* Scrollable Page Content with Sticky/Natural Bottom Footer */}
+        <main className="flex-1 overflow-y-auto flex flex-col justify-between">
+          <div className="p-6 md:p-8 flex-1">
+            <Outlet />
+          </div>
+          <InstitutionalFooter />
         </main>
       </div>
     </div>

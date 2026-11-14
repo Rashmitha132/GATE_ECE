@@ -13,6 +13,7 @@ import {
   ChevronRight
 } from 'lucide-react';
 import { InstitutionalHeader } from '../components/InstitutionalHeader';
+import { InstitutionalFooter } from '../components/InstitutionalFooter';
 import { useAuth } from '../context/AuthContext';
 
 export const LandingPage: React.FC = () => {
@@ -235,9 +236,7 @@ export const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      <footer className="text-center py-6 text-xs text-stone-500 border-t border-rose-100 mt-6">
-        &copy; {new Date().getFullYear()} GSSS Institute of Engineering and Technology for Women, Mysuru. Department of Electronics and Communication Engineering.
-      </footer>
+      <InstitutionalFooter className="mt-8" />
     </div>
   );
 };

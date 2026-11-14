@@ -18,6 +18,7 @@ import {
   Send
 } from 'lucide-react';
 import api from '../services/api';
+import { InstitutionalFooter } from '../components/InstitutionalFooter';
 
 export const LoginPage: React.FC = () => {
   const { login } = useAuth();
@@ -156,7 +157,7 @@ export const LoginPage: React.FC = () => {
 
   return (
     <div
-      className="h-screen w-screen overflow-hidden flex items-center justify-center font-sans relative p-3 sm:p-4 select-none"
+      className="min-h-screen w-screen flex flex-col justify-between items-center font-sans relative p-3 sm:p-4 select-none"
       style={{
         backgroundImage: "url('/images/gsss-building.png')",
         backgroundSize: 'cover',
@@ -548,6 +549,9 @@ export const LoginPage: React.FC = () => {
           </div>
         </div>
       )}
+
+      {/* Institutional Guidance & Attribution Footer */}
+      <InstitutionalFooter variant="dark" />
     </div>
   );
 };
