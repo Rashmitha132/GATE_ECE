@@ -66,23 +66,24 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen = false, onClose }) => 
         />
       )}
 
-      {/* Responsive Sidebar Drawer */}
+      {/* Responsive Fixed Sidebar (Zero Ugly Scrollbar) */}
       <aside 
         className={`
           fixed lg:static inset-y-0 left-0 z-50
           w-72 sm:w-64 bg-[#701a2b] text-white flex flex-col h-full shrink-0 shadow-2xl lg:shadow-xl select-none
+          overflow-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden
           transition-transform duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         `}
       >
         {/* Brand Header */}
-        <div className="p-5 sm:p-6 border-b border-rose-900/40 flex items-center justify-between">
+        <div className="p-4 sm:p-5 border-b border-rose-900/40 flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2.5">
             <div className="w-8 h-8 rounded bg-rose-950 flex items-center justify-center border border-rose-800 shrink-0">
-              <Sparkles className="w-5 h-5 text-amber-300" />
+              <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-amber-300" />
             </div>
             <div>
-              <h2 className="text-xl font-bold font-serif tracking-wide text-white leading-tight">GATE ECE</h2>
+              <h2 className="text-lg sm:text-xl font-bold font-serif tracking-wide text-white leading-tight">GATE ECE</h2>
               <p className="text-[10px] text-rose-200 tracking-wider">
                 {user?.role === 'faculty' ? 'Faculty Portal' : user?.role === 'admin' ? 'Admin Portal' : 'Learn • Practice • Achieve'}
               </p>
@@ -100,8 +101,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen = false, onClose }) => 
           </button>
         </div>
 
-        {/* Navigation Links */}
-        <nav className="flex-1 py-4 px-3 space-y-1.5 overflow-y-auto">
+        {/* Navigation Links — Compact & Scrollbar-free */}
+        <nav className="flex-1 py-2 sm:py-3 px-3 space-y-1 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {navItems.map((item) => {
             const Icon = item.icon;
             return (
@@ -110,16 +111,16 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen = false, onClose }) => 
                 to={item.path}
                 onClick={() => onClose?.()}
                 className={({ isActive }) =>
-                  `flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium transition-all ${
+                  `flex items-center justify-between px-3.5 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-medium transition-all ${
                     isActive
                       ? 'bg-[#500713] text-white shadow-md font-semibold border-l-4 border-amber-400 pl-3'
                       : 'text-rose-100/80 hover:bg-rose-900/50 hover:text-white'
                   }`
                 }
               >
-                <div className="flex items-center gap-3">
-                  <Icon className="w-4 h-4 text-rose-300" />
-                  <span>{item.label}</span>
+                <div className="flex items-center gap-2.5 sm:gap-3">
+                  <Icon className="w-4 h-4 text-rose-300 shrink-0" />
+                  <span className="truncate">{item.label}</span>
                 </div>
                 <span className="text-rose-400/60 text-xs">&rsaquo;</span>
               </NavLink>
@@ -128,18 +129,18 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen = false, onClose }) => 
         </nav>
 
         {/* Motivational / Role Graphic on Bottom Sidebar */}
-        <div className="px-5 sm:px-6 py-4 mt-auto">
-          <div className="relative rounded-xl overflow-hidden p-3.5 sm:p-4 border border-rose-800/60 bg-gradient-to-b from-[#8e2137]/60 to-[#500713]/80">
-            <p className="font-serif italic text-amber-200/90 text-xs sm:text-sm leading-snug">
+        <div className="px-4 py-3 mt-auto shrink-0 border-t border-rose-900/40">
+          <div className="relative rounded-lg overflow-hidden p-3 border border-rose-800/60 bg-gradient-to-b from-[#8e2137]/60 to-[#500713]/80">
+            <p className="font-serif italic text-amber-200/90 text-xs leading-snug">
               {user?.role === 'faculty' ? '“Guiding Future Engineers”' : user?.role === 'admin' ? '“Institutional Excellence”' : '“Your GATE Journey Matters”'}
             </p>
-            <div className="mt-1.5 text-[9px] sm:text-[10px] text-rose-200/70">
+            <div className="mt-1 text-[9px] text-rose-200/70">
               {user?.role === 'faculty' ? 'GSSSIETW Faculty Management' : user?.role === 'admin' ? 'GSSSIETW Governance' : 'GSSSIETW Department of ECE'}
             </div>
           </div>
 
           {/* User logout action */}
-          <div className="mt-3 sm:mt-4 pt-3 border-t border-rose-900/50 flex items-center justify-between text-xs text-rose-200">
+          <div className="mt-2.5 pt-2 border-t border-rose-900/40 flex items-center justify-between text-xs text-rose-200">
             <div className="truncate max-w-[130px] sm:max-w-[140px]">
               <span className="font-medium text-white">{user?.full_name}</span>
             </div>
