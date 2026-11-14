@@ -33,7 +33,7 @@ export const InstitutionalFooter: React.FC<FooterProps> = ({ variant = 'light', 
             &copy; {year} <span className="text-[#701a2b] font-bold">GSSSIETW</span> &bull; Department of Electronics &amp; Communication Engineering
           </p>
           <p className="text-[10px] text-stone-500">
-            GATE ECE Learning &amp; Assessment Platform &bull; Institutional Intranet System
+            GATE ECE Learning &amp; Assessment Platform
           </p>
         </div>
         <div className="text-xs text-stone-600 bg-rose-50/70 border border-rose-100/90 rounded-2xl sm:rounded-full px-3.5 py-1.5 sm:py-1 flex flex-wrap items-center justify-center gap-1.5 shadow-2xs">
