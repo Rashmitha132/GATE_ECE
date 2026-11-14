@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import api from '../services/api';
+import { rotateQuoteSeed } from '../utils/quotes';
 
 export interface User {
   id: number;
@@ -65,6 +66,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const { access_token, user: loggedUser } = res.data;
     localStorage.setItem('gate_auth_token', access_token);
     localStorage.setItem('gate_user', JSON.stringify(loggedUser));
+    rotateQuoteSeed();
     setToken(access_token);
     setUser(loggedUser);
     return loggedUser;

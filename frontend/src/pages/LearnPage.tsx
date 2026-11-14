@@ -23,6 +23,7 @@ import {
   PracticeQuestion,
   FormulaItem,
 } from '../data/learningContent';
+import { getTopicQuote } from '../utils/quotes';
 
 type LessonTab =
   | 'Concept'
@@ -1830,10 +1831,8 @@ export const LearnPage: React.FC = () => {
               <p className="mt-2 text-xs font-semibold text-[#701a2b]">Learn visually</p>
             </div>
           </div>
-          <p className="font-serif text-sm italic text-[#701a2b]">
-            Better Concepts
-            <br />
-            Brighter Future ♥
+          <p className="font-serif text-xs italic text-[#701a2b] max-w-[150px] leading-tight">
+            {getTopicQuote('learn')}
           </p>
         </div>
       </section>

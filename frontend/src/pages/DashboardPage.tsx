@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import api from '../services/api';
 import { useAuth } from '../context/AuthContext';
+import { getTopicQuote } from '../utils/quotes';
 
 export const DashboardPage: React.FC = () => {
   const { user } = useAuth();
@@ -87,10 +88,10 @@ export const DashboardPage: React.FC = () => {
             {s.full_name}
           </h1>
           <p className="text-sm text-stone-600">
-            Small steps every day lead to big results.
+            {getTopicQuote('dashboard_subtitle')}
           </p>
           <p className="font-serif italic text-sm text-[#701a2b] pt-2">
-            “Discipline today, freedom tomorrow.”
+            {getTopicQuote('dashboard_hero')}
           </p>
         </div>
 
@@ -122,7 +123,7 @@ export const DashboardPage: React.FC = () => {
             <p className="text-xs text-stone-700 font-medium">{s.today_goal_text}</p>
             <div className="mt-3">
               <div className="flex justify-between text-[11px] text-stone-500 mb-1">
-                <span className="italic font-serif text-[#701a2b]">Progress, not perfection ♥</span>
+                <span className="italic font-serif text-[#701a2b]">{getTopicQuote('dashboard_goal')}</span>
                 <span>{s.today_goal_progress} / {s.today_goal_target}</span>
               </div>
               <div className="w-full bg-stone-100 rounded-full h-2">
@@ -401,7 +402,7 @@ export const DashboardPage: React.FC = () => {
       <div className="bg-[#701a2b] text-white rounded-xl p-4 flex items-center justify-between">
         <div>
           <p className="text-xs font-serif italic text-amber-200">
-            Not just a preparation, but a step towards your future.
+            {getTopicQuote('dashboard_footer')}
           </p>
           <span className="text-[10px] text-rose-200">GATE ECE | GSSSIETW</span>
         </div>

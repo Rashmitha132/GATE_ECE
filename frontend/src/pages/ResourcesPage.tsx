@@ -15,6 +15,7 @@ import {
   X
 } from 'lucide-react';
 import api from '../services/api';
+import { getTopicQuote } from '../utils/quotes';
 
 export const ResourcesPage: React.FC = () => {
   const [resources, setResources] = useState<any[]>([]);
@@ -137,7 +138,7 @@ export const ResourcesPage: React.FC = () => {
             />
           </div>
           <div className="font-serif italic text-xs text-[#701a2b] max-w-[140px] leading-tight">
-            “Small steps every day lead to big results..” ♥
+            {getTopicQuote('resources')}
           </div>
         </div>
       </div>

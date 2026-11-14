@@ -22,6 +22,7 @@ import {
 import { Link } from 'react-router-dom';
 import api from '../services/api';
 import { useAuth } from '../context/AuthContext';
+import { getTopicQuote } from '../utils/quotes';
 
 type Question = {
   id: number;
@@ -2257,8 +2258,8 @@ export const TestsPage: React.FC = () => {
                 <p className="text-stone-600">Check negative-marking rules before attempting uncertain answers.</p>
               </div>
 
-              <div className="rounded-2xl border border-rose-100 bg-[#faf7f5] p-4 text-center text-sm italic text-[#701a2b]">
-                Every test brings you closer to your goal. ♥
+              <div className="rounded-2xl border border-rose-100 bg-[#faf7f5] p-4 text-center text-xs italic text-[#701a2b]">
+                {getTopicQuote('tests')}
               </div>
             </aside>
           </div>

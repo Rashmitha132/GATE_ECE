@@ -22,6 +22,7 @@ import {
 import { Link } from 'react-router-dom';
 import api from '../services/api';
 import { useAuth } from '../context/AuthContext';
+import { getTopicQuote } from '../utils/quotes';
 
 export const PerformancePage: React.FC = () => {
   const { user } = useAuth();
@@ -87,8 +88,8 @@ export const PerformancePage: React.FC = () => {
               className="w-full h-full object-cover" 
             />
           </div>
-          <div className="font-serif italic text-sm text-[#701a2b]">
-            “Small steps every day<br />lead to big results.” ♥
+          <div className="font-serif italic text-sm text-[#701a2b] max-w-[160px] leading-tight">
+            {getTopicQuote('performance')}
           </div>
         </div>
       </div>

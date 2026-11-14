@@ -15,6 +15,7 @@ import {
   X
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
+import { getSidebarRoleQuote } from '../utils/quotes';
 
 export interface SidebarProps {
   isOpen?: boolean;
@@ -132,7 +133,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen = false, onClose }) => 
         <div className="px-4 py-3 mt-auto shrink-0 border-t border-rose-900/40">
           <div className="relative rounded-lg overflow-hidden p-3 border border-rose-800/60 bg-gradient-to-b from-[#8e2137]/60 to-[#500713]/80">
             <p className="font-serif italic text-amber-200/90 text-xs leading-snug">
-              {user?.role === 'faculty' ? '“Guiding Future Engineers”' : user?.role === 'admin' ? '“Institutional Excellence”' : '“Your GATE Journey Matters”'}
+              {getSidebarRoleQuote(user?.role)}
             </p>
             <div className="mt-1 text-[9px] text-rose-200/70">
               {user?.role === 'faculty' ? 'GSSSIETW Faculty Management' : user?.role === 'admin' ? 'GSSSIETW Governance' : 'GSSSIETW Department of ECE'}

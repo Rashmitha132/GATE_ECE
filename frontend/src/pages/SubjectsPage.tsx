@@ -16,6 +16,7 @@ import {
   Layers
 } from 'lucide-react';
 import api from '../services/api';
+import { getTopicQuote } from '../utils/quotes';
 
 const SYLLABUS_MAP: Record<string, { file: string; weightage: string; topicsSummary: string[] }> = {
   'Engineering Mathematics': {
@@ -227,8 +228,8 @@ export const SubjectsPage: React.FC = () => {
               className="w-full h-full object-cover" 
             />
           </div>
-          <div className="font-serif italic text-xs text-[#701a2b] max-w-[130px] leading-tight">
-            “Small steps in the right direction lead to big results.”
+          <div className="font-serif italic text-xs text-[#701a2b] max-w-[140px] leading-tight">
+            {getTopicQuote('subjects')}
           </div>
         </div>
       </div>

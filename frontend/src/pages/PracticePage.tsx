@@ -22,6 +22,7 @@ import {
 import { Link } from 'react-router-dom';
 import api from '../services/api';
 import { useAuth } from '../context/AuthContext';
+import { getTopicQuote } from '../utils/quotes';
 
 export const PracticePage: React.FC = () => {
   const { user } = useAuth();
@@ -868,7 +869,7 @@ export const PracticePage: React.FC = () => {
             />
           </div>
           <div className="font-serif italic text-sm text-[#701a2b]">
-            Practice today,<br />Progress tomorrow ♥
+            {getTopicQuote('practice')}
           </div>
         </div>
       </div>
@@ -1496,7 +1497,7 @@ export const PracticePage: React.FC = () => {
             {/* Motivational Card */}
             <div className="p-4 rounded-2xl bg-gradient-to-br from-rose-50 to-pink-50 border border-rose-100 text-center">
               <p className="font-serif italic text-xs text-[#701a2b]">
-                “Small steps every day lead to big results.” ♥
+                {getTopicQuote('practice', 1)}
               </p>
             </div>
           </div>
